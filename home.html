@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - WealthWatch</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="logo">
+    <img class="logopic" src="logo.png">
+    WealthWatch
+  </div>
+  <div class="nav-links">
+    <button class="active" onclick="showHome()">Dashboard</button>
+    <button onclick="showPortfolio()">Holdings</button>
+    <button onclick="showTransactions()">Transactions</button>
+    <button onclick="logout()">Logout</button>
+  </div>
+</div>
+
+<div class="main-content">
+  <h1>Dashboard</h1>
+
+  <!-- METRIC CARDS -->
+  <div class="metrics-grid">
+    <div class="metric-card">
+      <div class="metric-label">Total investment</div>
+      <div class="metric-value" id="dashboardInvestment">$0.00</div>
+      <div class="metric-sub" id="holdingsCount">— holdings</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Current value</div>
+      <div class="metric-value" id="dashboardCurrent">$0.00</div>
+      <div class="metric-sub">Live prices</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Total return</div>
+      <div class="metric-value" id="dashboardReturnPct">0.00%</div>
+      <div class="metric-sub" id="dashboardProfit">$0.00</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Positions</div>
+      <div class="metric-value" id="positionCount">0</div>
+      <div class="metric-sub">Active holdings</div>
+    </div>
+  </div>
+
+  <!-- TOP ROW CHARTS -->
+  <div class="charts-row">
+    <div class="card">
+      <h3>Portfolio value</h3>
+      <div class="card-sub">Last 6 months</div>
+      <div class="chart-container">
+        <canvas id="lineChart"></canvas>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Allocation</h3>
+      <div class="card-sub">By position weight</div>
+      <div class="chart-legend" id="donutLegend"></div>
+      <div class="chart-container-sm">
+        <canvas id="portfolioChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM ROW: top/bottom performers + category split + holdings -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
+    <div class="card">
+      <h3>Top 5 performers</h3>
+      <div class="card-sub">Highest return % since purchase</div>
+      <table class="holdings-table" id="topPerformersTable"></table>
+    </div>
+    <div class="card">
+      <h3>Bottom 5 performers</h3>
+      <div class="card-sub">Lowest return % since purchase</div>
+      <table class="holdings-table" id="bottomPerformersTable"></table>
+    </div>
+  </div>
+
+  <div class="bottom-row">
+    <div class="card">
+      <h3>Sector allocation</h3>
+      <div class="card-sub">By category</div>
+      <div class="chart-legend" id="categoryLegend"></div>
+      <div class="chart-container-sm">
+        <canvas id="categoryChart"></canvas>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Holdings</h3>
+      <div id="holdingsList" style="margin-top:10px"></div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

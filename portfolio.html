@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Holdings - WealthWatch</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="logo">
+    <img class="logopic" src="logo.png">
+    WealthWatch
+  </div>
+  <div class="nav-links">
+    <button onclick="showHome()">Dashboard</button>
+    <button class="active" onclick="showPortfolio()">Holdings</button>
+    <button onclick="showTransactions()">Transactions</button>
+    <button onclick="logout()">Logout</button>
+  </div>
+</div>
+
+<div class="main-content">
+  <h1>Holdings</h1>
+
+  <div class="card" style="margin-bottom:16px">
+    <h3>Your Holdings</h3>
+    <div class="card-sub">Live prices updated on load</div>
+    <table class="holdings-table">
+      <thead>
+        <tr>
+          <th>Instrument</th>
+          <th>LTP</th>
+          <th>Invested</th>
+          <th>Current Value</th>
+          <th>P&amp;L</th>
+          <th>Return %</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="portfolioTable"></tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>Portfolio Summary</h3>
+    <div class="summary-stats" style="margin-top:10px">
+      <p><span>Total investment</span><strong id="totalInvestment">$0.00</strong></p>
+      <p><span>Current value</span><strong id="totalCurrent">$0.00</strong></p>
+      <p><span>Total P&amp;L</span><strong id="totalProfit">$0.00</strong></p>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Transactions - WealthWatch</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="logo">
+    <img class="logopic" src="logo.png">
+    WealthWatch
+  </div>
+  <div class="nav-links">
+    <button onclick="showHome()">Dashboard</button>
+    <button onclick="showPortfolio()">Holdings</button>
+    <button class="active" onclick="showTransactions()">Transactions</button>
+    <button onclick="logout()">Logout</button>
+  </div>
+</div>
+
+<div class="main-content">
+  <h1>Transactions</h1>
+
+  <div class="card" style="margin-bottom:16px">
+    <h3>Add Transaction</h3>
+    <div class="card-sub">Enter trade details below</div>
+    <div class="tx-form">
+      <input id="txSymbol" placeholder="Stock Symbol (e.g. AAPL)">
+      <input id="txQty" type="number" placeholder="Quantity">
+      <input id="txPrice" type="number" placeholder="Buy Price">
+      <input id="txDate" type="date" placeholder="Buy Date">
+      <select id="txCategory">
+        <option value="">Select Category</option>
+        <option value="IT">IT</option>
+        <option value="Banking">Banking</option>
+        <option value="FMCG">FMCG</option>
+        <option value="Energy">Energy</option>
+        <option value="Pharma">Pharma</option>
+        <option value="Auto">Auto</option>
+        <option value="Real Estate">Real Estate</option>
+        <option value="Commodities">Commodities</option>
+        <option value="Others">Others</option>
+      </select>
+      <button class="btn-primary" onclick="addTransaction()">Add Transaction</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Transaction History</h3>
+    <div class="card-sub">All recorded trades</div>
+    <table class="holdings-table">
+      <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Category</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody id="transactionTable"></tbody>
+    </table>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
