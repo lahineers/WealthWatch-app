@@ -1,0 +1,7 @@
+node_modules/
+.env
+.venv/
+.DS_Store
+.ipynb_checkpoints/
+.env
+server/.env
